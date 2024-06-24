@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        select, input {
+            margin-top: 5px;
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+    </style>
+    <title>Calculadora de Resolución de Transformadas</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Funciones</h1>
+        <label for="selectProperty">Elija la función a calcular:</label>
+        <select id="selectProperty">
+            <option value=""></option>
+            <option value="1">g(x) = sinh (7t)</option>
+            <option value="2">f(t) = cos 8(t)</option>
+            <option value="3">b(x) = cosh 12(t)</option>
+            <option value="4">f(x) = e^13 sin 5t</option>
+            <option value="5">g(h) = e^0t sin 3^t</option>
+        </select>
+
+        <button onclick="calculate()">Calcular</button>
+
+        <p id="result" class="result">El resultado aparecerá aquí.</p>
+        <p id="formula" class="result"></p>
+        <p id="equivalence" class="result"></p>
+        <p id="substitution" class="result"></p>
+        <p id="resolution" class="result"></p>
+        <p id="notation" class="result"></p>
+    </div>
+
+    <script>
+    function calculate() {
+        const select = document.getElementById('selectProperty');
+        const resultParagraph = document.getElementById('result');
+        const formulaParagraph = document.getElementById('formula');
+        const equivalenceParagraph = document.getElementById('equivalence');
+        const substitutionParagraph = document.getElementById('substitution');
+        const resolutionParagraph = document.getElementById('resolution');
+        const notationParagraph = document.getElementById('notation');
+
+        let result = '';
+        let formula = '';
+        let equivalence = '';
+        let substitution = '';
+        let resolution = '';
+        let notation = '';
+
+        switch (select.value) {
+            case '1':
+                result = `\\( \\mathcal{L}\\{\\sinh(7t)\\} = \\frac{7}{s^2 - 49} \\)`;
+                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\sinh(at)\\} = \\frac{a}{s^2 - a^2} \\)';
+                equivalence = 'La Equivalencia de la función es: \\( a = 7 \\)';
+                substitution = 'La Sustitución de la función es: \\( \\mathcal{L}\\{\\sinh(7t)\\} = \\frac{7}{s^2 - 7^2} \\)';
+                resolution = 'La Resolución de la función es: \\( \\frac{7}{s^2 - 49} \\)';
+                notation = 'Notación de Leibnitz: \\( \\frac{d}{dt}\\sinh(7t) = 7 \\cosh(7t) \\)';
+                break;
+
+            case '2':
+                result = `\\( \\mathcal{L}\\{\\cos(8t)\\} = \\frac{s}{s^2 + 64} \\)`;
+                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\cos(at)\\} = \\frac{s}{s^2 + a^2} \\)';
+                equivalence = 'La Equivalencia de la función es: \\( a = 8 \\)';
+                substitution = 'La Sustitución de la función es: \\( \\mathcal{L}\\{\\cos(8t)\\} = \\frac{s}{s^2 + 8^2} \\)';
+                resolution = 'La Resolución de la función es: \\( \\frac{s}{s^2 + 64} \\)';
+                notation = 'Notación de Leibnitz: \\( \\frac{d}{dt}\\cos(8t) = -8 \\sin(8t) \\)';
+                break;
+
+            case '3':
+                result = `\\( \\mathcal{L}\\{\\cosh(12t)\\} = \\frac{s}{s^2 - 144} \\)`;
+                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\cosh(at)\\} = \\frac{s}{s^2 - a^2} \\)';
+                equivalence = 'La Equivalencia de la función es: \\( a = 12 \\)';
+                substitution = 'La Sustitución de la función es: \\( \\mathcal{L}\\{\\cosh(12t)\\} = \\frac{s}{s^2 - 12^2} \\)';
+                resolution = 'La Resolución de la función es: \\( \\frac{s}{s^2 - 144} \\)';
+                notation = 'Notación de Leibnitz: \\( \\frac{d}{dt}\\cosh(12t) = 12 \\sinh(12t) \\)';
+                break;
+
+            case '4':
+                result = `\\( \\mathcal{L}\\{e^{13t} \\sin(5t)\\} = \\frac{5}{(s-13)^2 + 25} \\)`;
+                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{e^{at} \\sin(bt)\\} = \\frac{b}{(s-a)^2 + b^2} \\)';
+                equivalence = 'La Equivalencia de la función es: \\( a = 13, b = 5 \\)';
+                substitution = 'La Sustitución de la función es: \\( \\mathcal{L}\\{e^{13t} \\sin(5t)\\} = \\frac{5}{(s-13)^2 + 5^2} \\)';
+                resolution = 'La Resolución de la función es: \\( \\frac{5}{(s-13)^2 + 25} \\)';
+                notation = 'Notación de Leibnitz: \\( \\frac{d}{dt}(e^{13t} \\sin(5t)) = 13e^{13t} \\sin(5t) + 5e^{13t} \\cos(5t) \\)';
+                break;
+
+            case '5':
+                result = `\\( \\mathcal{L}\\{e^{0t} \\sin(3^t)\\} = \\frac{3^t}{s^2 + (3^t)^2} \\)`;
+                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{e^{at} \\sin(bt)\\} = \\frac{b}{(s-a)^2 + b^2} \\)';
+                equivalence = 'La Equivalencia de la función es: \\( a = 0, b = 3^t \\)';
+                substitution = 'La Sustitución de la función es: \\( \\mathcal{L}\\{e^{0t} \\sin(3^t)\\} = \\frac{3^t}{s^2 + (3^t)^2} \\)';
+                resolution = 'La Resolución de la función es: \\( \\frac{3^t}{s^2 + (3^t)^2} \\)';
+                notation = 'Notación de Leibnitz: \\( \\frac{d}{dt}(e^{0t} \\sin(3^t)) = 3^t \\cos(3^t) \\)';
+                break;
+
+            default:
+                alert('Seleccione una función válida.');
+                return;
+        }
+
+        resultParagraph.innerHTML = `La Transformada de la función es: ${result}`;
+        formulaParagraph.innerHTML = formula;
+        equivalenceParagraph.innerHTML = equivalence;
+        substitutionParagraph.innerHTML = substitution;
+        resolutionParagraph.innerHTML = resolution;
+        notationParagraph.innerHTML = notation;
+        MathJax.typeset();
+    }
+    </script>
+</body>
+</html>
