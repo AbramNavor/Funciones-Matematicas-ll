@@ -65,23 +65,26 @@
         <label for="selectProperty">Elija la función a calcular:</label>
         <select id="selectProperty" onchange="entradas_XD()">
             <option value=""></option>
-            <option value="1">f(x) = sin(at)</option>
-            <option value="2">g(t) = sinh(at)</option>
-            <option value="3">f(x) = cos(at)</option>
+            <option value="1">g(x) = sinh(at)</option>
+            <option value="2">g(x) = sinh(at)</option>
+            <option value="3">f(t) = cos(at)</option>
             <option value="4">b(x) = cosh(at)</option>
-            <option value="5">f(h) = e^(at) sinh(bt)</option>
+            <option value="5">f(x) = e^(at) sin(bt)</option>
+            <option value="6">te^at</option>
+            <option value="7">t^n e^at</option>
+            <option value="8">sinh(at) cosh(bt)</option>
         </select>
 
         <div id="inputFields"></div>
 
         <button onclick="calcular_todo()">Calcular</button>
 
+        <p id="notation" class="result"></p>
         <p id="result" class="result">El resultado aparecerá aquí.</p>
         <p id="formula" class="result"></p>
         <p id="equivalence" class="result"></p>
         <p id="substitution" class="result"></p>
         <p id="resolution" class="result"></p>
-        <p id="notation" class="result"></p>
     </div>
 
     <script>
@@ -94,13 +97,35 @@
             case '1':
             case '2':
             case '3':
-            case '4':
-            inputFieldsDiv.innerHTML = `
+                inputFieldsDiv.innerHTML = `
                     <label for="aValue">Ingrese el valor de a:</label>
                     <input type="number" id="aValue" step="any">
                 `;
                 break;
+            case '4':
             case '5':
+                inputFieldsDiv.innerHTML = `
+                    <label for="aValue">Ingrese el valor de a:</label>
+                    <input type="number" id="aValue" step="any">
+                    <label for="bValue">Ingrese el valor de b:</label>
+                    <input type="number" id="bValue" step="any">
+                `;
+                break;
+            case '6':
+                inputFieldsDiv.innerHTML = `
+                    <label for="aValue">Ingrese el valor de a:</label>
+                    <input type="number" id="aValue" step="any">
+                `;
+                break;
+            case '7':
+                inputFieldsDiv.innerHTML = `
+                    <label for="nValue">Ingrese el valor de n:</label>
+                    <input type="number" id="nValue" step="any">
+                    <label for="aValue">Ingrese el valor de a:</label>
+                    <input type="number" id="aValue" step="any">
+                `;
+                break;
+            case '8':
                 inputFieldsDiv.innerHTML = `
                     <label for="aValue">Ingrese el valor de a:</label>
                     <input type="number" id="aValue" step="any">
@@ -114,6 +139,7 @@
     }
 
     function calcular_todo() {
+        const notaciondeLeibnitz = document.getElementById('notation');
         const select = document.getElementById('selectProperty');
         const resultado1 = document.getElementById('result');
         const formula1 = document.getElementById('formula');
@@ -121,6 +147,7 @@
         const sustitucion1 = document.getElementById('substitution');
         const resolucion1 = document.getElementById('resolution');
 
+        let notacion = '';
         let resultado = '';
         let formula = '';
         let equivalencia = '';
@@ -129,21 +156,16 @@
 
         const a_Valor = document.getElementById('aValue') ? parseFloat(document.getElementById('aValue').value) : null;
         const b_Valor = document.getElementById('bValue') ? parseFloat(document.getElementById('bValue').value) : null;
+        const n_Valor = document.getElementById('nValue') ? parseFloat(document.getElementById('nValue').value) : null;
 
-        if (isNaN(a_Valor) || ( select.value === '5') && isNaN(b_Valor)) {
-            alert('Por favor, ingrese valores válidos para a y b.');
+        if (isNaN(a_Valor) || ((select.value === '4' || select.value === '5' || select.value === '7' || select.value === '8') && (isNaN(b_Valor) || (select.value === '7' && isNaN(n_Valor))))) {
+            alert('Por favor, ingrese valores válidos para a, b y n.');
             return;
         }
 
         switch (select.value) {
             case '1':
-                resultado = `\\( \\mathcal{L}\\{\\sin(${a_Valor}t)\\} = \\mathcal{L}\\{\\sin(at)\\}\\)`;
-                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\sin(at)\\} = \\frac{a}{s^2 + a^2} \\)';
-                equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
-                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\sin(${a_Valor}t)\\} = \\frac{${a_Valor}}{s^2 + ${a_Valor}^2} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{${a_Valor}}{s^2 + ${a_Valor*a_Valor}} \\)`;
-                break;
-            case '2':
+                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}\\sinh(${a_Valor}t) = ${a_Valor} \\cosh(${a_Valor}t) \\)`;
                 resultado = `\\( \\mathcal{L}\\{\\sinh(${a_Valor}t)\\} = \\mathcal{L}\\{\\sinh(at)\\}\\)`;
                 formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\sinh(at)\\} = \\frac{a}{s^2 - a^2} \\)';
                 equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
@@ -151,7 +173,8 @@
                 resolucion = `La Resolución de la función es: \\( \\frac{${a_Valor}}{s^2 - ${a_Valor*a_Valor}} \\)`;
                 break;
 
-            case '3':
+            case '2':
+                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}\\cos(${a_Valor}t) = -${a_Valor} \\sin(${a_Valor}t) \\)`;
                 resultado = `\\( \\mathcal{L}\\{\\cos(${a_Valor}t)\\} = \\mathcal{L}\\{\\cos(at)\\} \\)`;
                 formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\cos(at)\\} = \\frac{s}{s^2 + a^2} \\)';
                 equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
@@ -159,15 +182,17 @@
                 resolucion = `La Resolución de la función es: \\( \\frac{s}{s^2 + ${a_Valor*a_Valor}} \\)`;
                 break;
 
-            case '4':
+            case '3':
+                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}\\cosh(${a_Valor}t) = ${a_Valor} \\sinh(${a_Valor}t) \\)`;
                 resultado = `\\( \\mathcal{L}\\{\\cosh(${a_Valor}t)\\} = \\mathcal{L}\\{\\cosh(at)\\} \\)`;
                 formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\cosh(at)\\} = \\frac{s}{s^2 - a^2} \\)';
                 equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
-                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\cosh(${a_Valor}t)\\} = \\frac{s}{s^2 - ${a_Valor}^2} \\)`;
+                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\cosh(${a_Valor}t)\\} = \\frac{s}{s^2 - (${a_Valor})^2} \\)`;
                 resolucion = `La Resolución de la función es: \\( \\frac{s}{s^2 - ${a_Valor*a_Valor}} \\)`;
                 break;
 
-            case '5':
+            case '4':
+                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(e^{${a_Valor}t} \\sin(${b_Valor}t)) = ${a_Valor}e^{${a_Valor}t} \\sin(${b_Valor}t) + ${b_Valor}e^{${a_Valor}t} \\cos(${b_Valor}t) \\)`;
                 resultado = `\\( \\mathcal{L}\\{e^{${a_Valor}t} \\sin(${b_Valor}t)\\} = \\mathcal{L}\\{e^{at} \\sin(bt)\\}\\)`;
                 formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{e^{at} \\sin(bt)\\} = \\frac{b}{(s-a)^2 + b^2} \\)';
                 equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor}, b = ${b_Valor} \\)`;
@@ -175,13 +200,48 @@
                 resolucion = `La Resolución de la función es: \\( \\frac{${b_Valor}}{(s-${a_Valor})^2 + ${b_Valor*b_Valor}} \\)`;
                 break;
 
+            case '5':
+                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(e^{${a_Valor}t} \\sin(${b_Valor}t)) = ${a_Valor}e^{${a_Valor}t} \\sin(${b_Valor}t) + ${b_Valor}e^{${a_Valor}t} \\cos(${b_Valor}t) \\)`;
+                resultado = `\\( \\mathcal{L}\\{e^{${a_Valor}t} \\sin(${b_Valor}t)\\} = \\mathcal{L}\\{e^{at} \\sin(bt)\\}\\)`;
+                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{e^{at} \\sin(bt)\\} = \\frac{b}{(s-a)^2 + b^2} \\)';
+                equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor}, b = ${b_Valor} \\)`;
+                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{e^{${a_Valor}t} \\sin(${b_Valor}t)\\} = \\frac{${b_Valor}}{(s-${a_Valor})^2 + ${b_Valor}^2} \\)`;
+                resolucion = `La Resolución de la función es: \\( \\frac{${b_Valor}}{(s-${a_Valor})^2 + ${b_Valor*b_Valor}} \\)`;
+                break;
 
+            case '6':
+                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(t e^{${a_Valor}t}) = e^{${a_Valor}t} + t ${a_Valor} e^{${a_Valor}t} \\)`;
+                resultado = `\\( \\mathcal{L}\\{t e^{${a_Valor}t}\\} = \\mathcal{L}\\{t e^{at}\\} \\)`;
+                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{t e^{at}\\} = \\frac{1}{(s-a)^2} \\)';
+                equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
+                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{t e^{${a_Valor}t}\\} = \\frac{1}{(s-${a_Valor})^2} \\)`;
+                resolucion = `La Resolución de la función es: \\( \\frac{1}{(s-${a_Valor})^2} \\)`;
+                break;
+
+            case '7':
+                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(t^n e^{${a_Valor}t}) = n t^{n-1} e^{${a_Valor}t} + t^n ${a_Valor} e^{${a_Valor}t} \\)`;
+                resultado = `\\( \\mathcal{L}\\{t^n e^{${a_Valor}t}\\} = \\mathcal{L}\\{t^n e^{at}\\} \\)`;
+                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{t^n e^{at}\\} = \\frac{n!}{(s-a)^{n+1}} \\)';
+                equivalencia = `La Equivalencia de la función es: \\( n = ${n_Valor}, a = ${a_Valor} \\)`;
+                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{t^n e^{${a_Valor}t}\\} = \\frac{${n_Valor}!}{(s-${a_Valor})^{${n_Valor}+1}} \\)`;
+                resolucion = `La Resolución de la función es: \\( \\frac{${n_Valor}!}{(s-${a_Valor})^{${n_Valor}+1}} \\)`;
+                break;
+
+            case '8':
+            resultado = `\\( \\mathcal{L}\\{\\sinh(${a_Valor}t) \\cosh(${b_Valor}t)\\} = \\mathcal{L}\\{\\sinh(at) \\cosh(bt)\\}\\)`;
+            formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\sinh(at) \\cosh(bt)\\} = \\frac{s}{s^2 - (a^2 - b^2)} \\)';
+            equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor}, b = ${b_Valor} \\)`;
+            sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\sinh(${a_Valor}t) \\cosh(${b_Valor}t)\\} = \\frac{s}{s^2 - (${a_Valor}^2 - ${b_Valor}^2)} \\)`;
+            resolucion = `La Resolución de la función es: \\( \\frac{s}{s^2 - (${a_Valor*a_Valor} - ${b_Valor*b_Valor})} \\)`;
+            notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(\\sinh(${a_Valor}t) \\cosh(${b_Valor}t)) = ${a_Valor}\\cosh(${a_Valor}t)\\cosh(${b_Valor}t) + ${b_Valor}\\sinh(${a_Valor}t)\\sinh(${b_Valor}t) \\)`;
+                break;
 
             default:
                 alert('Seleccione una función válida.');
                 return;
         }
 
+        notaciondeLeibnitz.innerHTML = notacion;
         resultado1.innerHTML = `La Transformada de la función es: ${resultado}`;
         formula1.innerHTML = formula;
         equivalencia1.innerHTML = equivalencia;
