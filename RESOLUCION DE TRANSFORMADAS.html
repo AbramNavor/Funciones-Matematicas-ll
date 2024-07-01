@@ -82,6 +82,7 @@
             <option value="15">15. cos (at + b)</option>
             <option value="16">16. u(t) cos(at)</option>
             <option value="17">17. u(t) sin(at)</option>
+            <option value="18">18. t^n u(t)</option>
             
         </select>
 
@@ -189,7 +190,7 @@
                 formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\sin(at)\\} = \\frac{a}{s^2 + a^2} \\)';
                 equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
                 sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\sin(${a_Valor}t)\\} = \\frac{${a_Valor}}{s^2 + ${a_Valor}^2} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{${a_Valor}}{s^2 + ${a_Valor}^2} \\)`;
+                resolucion = `La Resolución de la función es: \\( \\frac{${a_Valor}}{s^2 + ${a_Valor*a_Valor}} \\)`;
                 break;
 
             case '2':
@@ -234,7 +235,7 @@
                 formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{t e^{at}\\} = \\frac{1}{(s-a)^2} \\)';
                 equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
                 sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{t e^{${a_Valor}t}\\} = \\frac{1}{(s-${a_Valor})^2} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{1}{(s-${a_Valor})^2} \\)`;
+                resolucion = `La Resolución de la función es: \\( \\frac{1}{(s-${a_Valor*a_Valor})} \\)`;
                 break;
 
             case '7':
@@ -243,7 +244,7 @@
                 formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{t^n e^{at}\\} = \\frac{n!}{(s-a)^{n+1}} \\)';
                 equivalencia = `La Equivalencia de la función es: \\( n = ${n_Valor}, a = ${a_Valor} \\)`;
                 sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{t^n e^{${a_Valor}t}\\} = \\frac{${n_Valor}!}{(s-${a_Valor})^{${n_Valor}+1}} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{${n_Valor}!}{(s-${a_Valor})^{${n_Valor}+1}} \\)`;
+                resolucion = `La Resolución de la función es: \\( \\frac{${n_Valor}!}{(s-${a_Valor})^{${n_Valor+1}}} \\)`;
                 break;
 
             case '8':
@@ -277,7 +278,7 @@
                 formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{t \\sin(at)\\} = \\frac{2as}{(s^2 + a^2)^2} \\)';
                 equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
                 sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{t \\sin(${a_Valor}t)\\} = \\frac{2 \\cdot ${a_Valor} \\cdot s}{(s^2 + ${a_Valor}^2)^2} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{2 \\cdot ${a_Valor} \\cdot s}{(s^2 + ${a_Valor}^2)^2} \\)`;            
+                resolucion = `La Resolución de la función es: \\( \\frac{2 \\cdot ${a_Valor} \\cdot s}{(s^2 + ${a_Valor*a_Valor})^2} \\)`;            
             break;
             case '12':
                 notacion = `Notación de Leibnitz: \\( \\int_{0}^{t} f(a) \\, da \\)`;
@@ -293,7 +294,7 @@
                 formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{t \\cos(at)\\} = \\frac{s^2 - a^2}{(s^2 + a^2)^2} \\)';
                 equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
                 sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{t \\cos(${a_Valor}t)\\} = \\frac{s^2 - ${a_Valor}^2}{(s^2 + ${a_Valor}^2)^2} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{s^2 - ${a_Valor}^2}{(s^2 + ${a_Valor}^2)^2} \\)`;   
+                resolucion = `La Resolución de la función es: \\( \\frac{s^2 - ${a_Valor}^2}{(s^2 + ${a_Valor*a_Valor})^2} \\)`;   
             break;
             case '14':
                 notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(\\sin(${a_Valor}t + ${b_Valor})) = ${a_Valor} \\cos(${a_Valor}t + ${b_Valor}) \\)`;
@@ -301,7 +302,7 @@
                 formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\sin(at + b)\\} = \\frac{a \\cos(b) + s \\sin(b)}{s^2 + a^2} \\)';
                 equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor}, b = ${b_Valor} \\)`;
                 sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\sin(${a_Valor}t + ${b_Valor})\\} = \\frac{${a_Valor} \\cos(${b_Valor}) + s \\sin(${b_Valor})}{s^2 + ${a_Valor}^2} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{${a_Valor} \\cos(${b_Valor}) + s \\sin(${b_Valor})}{s^2 + ${a_Valor}^2} \\)`;    
+                resolucion = `La Resolución de la función es: \\( \\frac{${a_Valor} \\cos(${b_Valor}) + s \\sin(${b_Valor})}{s^2 + ${a_Valor*a_Valor}} \\)`;    
             break;
             case '15':
                 notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(\\cos(${a_Valor}t + ${b_Valor})) = -${a_Valor} \\sin(${a_Valor}t + ${b_Valor}) \\)`;
@@ -309,7 +310,7 @@
                 formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\cos(at + b)\\} = \\frac{s \\cos(b) - a \\sin(b)}{s^2 + a^2} \\)';
                 equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor}, b = ${b_Valor} \\)`;
                 sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\cos(${a_Valor}t + ${b_Valor})\\} = \\frac{s \\cos(${b_Valor}) - ${a_Valor} \\sin(${b_Valor})}{s^2 + ${a_Valor}^2} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{s \\cos(${b_Valor}) - ${a_Valor} \\sin(${b_Valor})}{s^2 + ${a_Valor}^2} \\)`;
+                resolucion = `La Resolución de la función es: \\( \\frac{s \\cos(${b_Valor}) - ${a_Valor} \\sin(${b_Valor})}{s^2 + ${a_Valor*a_Valor}} \\)`;
             break;
             case '16':
                 notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(u(t) \\cos(${a_Valor}t)) = -${a_Valor} u(t) \\sin(${a_Valor}t) \\)`;
