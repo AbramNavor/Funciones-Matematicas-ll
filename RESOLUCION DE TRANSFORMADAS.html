@@ -38,15 +38,6 @@
             align-items: center;
         }
 
-        .image-button img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-        }
-
         .image-button img:hover {
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
         }
@@ -85,28 +76,59 @@
         <label for="selectProperty">Elija la función a calcular:</label>
         <select id="selectProperty" onchange="entradas_XD()">
             <option value=""></option>
-            <option value="1">1. g(x) = sin(at)</option>
-            <option value="2">2. g(x) = sinh(at)</option>
-            <option value="3">3. f(t) = cos(at)</option>
-            <option value="4">4. b(x) = cosh(at)</option>
-            <option value="5">5. f(x) = e^(at) sin(bt)</option>
-            <option value="6">6. te^at</option>
-            <option value="7">7. t^n e^at</option>
-            <option value="8">8. sinh(at) cosh(bt)</option>
-            <option value="9">9. cosh(at) sinh(bt)</option>
-            <option value="10">10. e^bt t^n</option>
-            <option value="11">11. t sin (at)</option>
-            <option value="12">12. $$\int_{0}^{t} f(r) \, dr$$</option>
-            <option value="13">13. t cos (at)</option>
-            <option value="14">14. sin (at + b)</option>
-            <option value="15">15. cos (at + b)</option>
-            <option value="16">16. u(t) cos(at)</option>
-            <option value="17">17. u(t) sin(at)</option>
-            <option value="18">18. t^n u(t)</option>
+            <option value="1">1. 1</option>
+            <option value="2">2. t</option>
+            <option value="3">3. t^2</option>
+            <option value="4">4. t^n</option>
+            <option value="5">5. e^at</option>
+            <option value="6">6. cos(bt)</option>
+            <option value="7">7. sin(bt)</option>
+            <option value="8">8. sinh(bt)</option>
+            <option value="9">9. cosh(bt)</option>
+            <option value="10">10. e^(at) cos(bt)</option>
+            <option value="11">11. e^(at) sin(bt)</option>
+            <option value="12">12. s(a-t)</option>
+            <option value="13">13. u(a-t)</option>
+            <option value="14">14. te^at</option>
+            <option value="15">15. t^n e^at</option>
+            <option value="16">16. sinh(at) cosh(bt)</option>
+            <option value="17">17. cosh(at) sinh(bt)</option>
+            <option value="18">18. $$\int_{0}^{t} f(r) \, dr$$</option>
+            <option value="19">19. e^bt t^n</option>
+            <option value="20">20. t sin (at)</option>
+            <option value="21">21. t cos (at)</option>
+            <option value="22">22. sin (at + b)</option>
+            <option value="23">23. cos (at + b)</option>
+            <option value="24">24. u(t) cos(at)</option>
+            <option value="25">25. u(t) sin(at)</option>
+            <option value="26">26. t^n u(t)</option>
+            <option value="27">27. e^(-at) u(t)</option>
+            <option value="28">28. t^n e^(at) u(t)</option>
+            <option value="29">29. u(t-a) cos(b(t-a))</option>
+            <option value="30">30. u(t-a) sin(b(t-a))</option>
+            <option value="31">31. te^(-at) cos(bt)</option>
+            <option value="32">32. te^(-at) sin(bt)</option>
+            <option value="33">33. e^(-at) cosh(bt)</option>
+            <option value="34">34. e^(-at) sinh(bt)</option>
+            <option value="35">35. t^m e^(bt)</option>
+            <option value="36">36. t^m e^(-bt)</option>
+            <option value="37">37. u(t-a) cos(bt)</option>
+            <option value="38">38. u(t-a) sin(bt)</option>
+            <option value="39">39. u(t-a) cos(bt)</option>
+            <option value="40">40. u(t-a) cosh(bt)</option>
+            <option value="41">41. u(t-a) sinh(bt)</option>
+            <option value="42">42. u(t-a) cos(bt)</option>
+            <option value="43">43. e^(at) sinh(bt)</option>
+            <option value="44">44. te^(at) sin(bt)</option>
+            <option value="45">45. te^(at) cos(bt)</option>
+            <option value="46">46. cos(at) sin(bt)</option>
+            <option value="47">47. sin(at) cos(bt)</option>
+            <option value="48">48. u(t) cosh(bt)</option>
+            <option value="49">49. u(t) sinh(bt)</option>
         </select>
         <div class="swiper-container">
             <div class="swiper-wrapper" id="buttonContainer">
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(1)"><img src="img/transformada.png" alt="Función 1"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(1)"><img src="img/1.jpg" alt="Función 1"></div></div>
                 <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(2)"><img src="img/transformada.png" alt="Función 2"></div></div>
                 <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(3)"><img src="img/transformada.png" alt="Función 3"></div></div>
                 <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(4)"><img src="img/transformada.png" alt="Función 4"></div></div>
@@ -124,6 +146,36 @@
                 <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(16)"><img src="img/transformada.png" alt="Función 16"></div></div>
                 <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(17)"><img src="img/transformada.png" alt="Función 17"></div></div>
                 <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(18)"><img src="img/transformada.png" alt="Función 18"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(19)"><img src="img/transformada.png" alt="Función 19"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(20)"><img src="img/transformada.png" alt="Función 20"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(21)"><img src="img/transformada.png" alt="Función 21"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(22)"><img src="img/transformada.png" alt="Función 22"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(23)"><img src="img/transformada.png" alt="Función 23"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(24)"><img src="img/transformada.png" alt="Función 24"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(25)"><img src="img/transformada.png" alt="Función 25"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(26)"><img src="img/transformada.png" alt="Función 26"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(27)"><img src="img/transformada.png" alt="Función 27"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(28)"><img src="img/transformada.png" alt="Función 28"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(29)"><img src="img/transformada.png" alt="Función 29"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(30)"><img src="img/transformada.png" alt="Función 30"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(31)"><img src="img/transformada.png" alt="Función 31"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(32)"><img src="img/transformada.png" alt="Función 32"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(33)"><img src="img/transformada.png" alt="Función 33"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(34)"><img src="img/transformada.png" alt="Función 34"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(35)"><img src="img/transformada.png" alt="Función 35"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(36)"><img src="img/1.jpg" alt="Función 36"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(37)"><img src="img/transformada.png" alt="Función 37"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(38)"><img src="img/transformada.png" alt="Función 38"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(39)"><img src="img/transformada.png" alt="Función 39"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(40)"><img src="img/transformada.png" alt="Función 40"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(41)"><img src="img/transformada.png" alt="Función 41"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(42)"><img src="img/transformada.png" alt="Función 42"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(43)"><img src="img/transformada.png" alt="Función 43"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(44)"><img src="img/transformada.png" alt="Función 44"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(45)"><img src="img/transformada.png" alt="Función 45"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(46)"><img src="img/transformada.png" alt="Función 46"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(47)"><img src="img/transformada.png" alt="Función 47"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(48)"><img src="img/transformada.png" alt="Función 48"></div></div>
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -152,26 +204,62 @@
         inputFieldsDiv.innerHTML = '';
 
         switch (funcion) {
-            case 1:
-            case 2:
-            case 3:
-            case 6:
-            case 11:
+            case 4:
+            case 26:
+            case 27:
+                inputFieldsDiv.innerHTML = `
+                    <label for="nValue">Ingrese el valor de n:</label>
+                    <input type="number" id="nValue" step="any">
+                `;
+                break;
+            case 5:
             case 12:
             case 13:
-            case 16:
-            case 17:
+            case 14:
+            case 18:
+            case 20:
+            case 21:
+            case 24:
+            case 25:
                 inputFieldsDiv.innerHTML = `
                     <label for="aValue">Ingrese el valor de a:</label>
                     <input type="number" id="aValue" step="any">
                 `;
                 break;
-            case 4:
-            case 5:
+            case 6:
+            case 7:
             case 8:
             case 9:
-            case 14:
-            case 15:
+            case 48:
+            case 49:
+                inputFieldsDiv.innerHTML = `
+                <label for="bValue">Ingrese el valor de b:</label>
+                <input type="number" id="bValue" step="any">
+                `;
+                break;
+            case 10:
+            case 11:
+            case 16:
+            case 17:
+            case 22:
+            case 23:
+            case 29:
+            case 30:
+            case 31:
+            case 32:
+            case 33:
+            case 34:
+            case 37:
+            case 38:
+            case 39:
+            case 40:
+            case 41:
+            case 42:
+            case 43:
+            case 44:
+            case 45:
+            case 46:
+            case 47:
                 inputFieldsDiv.innerHTML = `
                     <label for="aValue">Ingrese el valor de a:</label>
                     <input type="number" id="aValue" step="any">
@@ -179,7 +267,8 @@
                     <input type="number" id="bValue" step="any">
                 `;
                 break;
-            case 7:
+            case 15:
+            case 28:
                 inputFieldsDiv.innerHTML = `
                     <label for="nValue">Ingrese el valor de n:</label>
                     <input type="number" id="nValue" step="any">
@@ -187,7 +276,9 @@
                     <input type="number" id="aValue" step="any">
                 `;
                 break;
-            case 10:
+            case 19:
+            case 35:
+            case 36:
                 inputFieldsDiv.innerHTML = `
                     <label for="bValue">Ingrese el valor de b:</label>
                     <input type="number" id="bValue" step="any">
@@ -219,8 +310,8 @@
         const b_Valor = document.getElementById('bValue') ? parseFloat(document.getElementById('bValue').value) : null;
         const n_Valor = document.getElementById('nValue') ? parseFloat(document.getElementById('nValue').value) : null;
 
-        if (isNaN(a_Valor) || ((selectedFunction === 4 || selectedFunction === 5 || selectedFunction === 7 || selectedFunction === 8 || selectedFunction === 9 || selectedFunction === 10 || selectedFunction === 14 || selectedFunction === 15) && (isNaN(b_Valor) || ((selectedFunction === 7 || selectedFunction === 10) && isNaN(n_Valor))))) {
-            alert('Por favor, ingrese valores válidos para a, b y n.');
+        if (isNaN(aValue) || isNaN(bValue) || isNaN(nValue)) {
+            alert('Por favor, ingrese valores numéricos para a, b y n.');
             return;
         }
 
