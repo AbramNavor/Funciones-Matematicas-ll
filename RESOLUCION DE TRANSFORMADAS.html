@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -21,22 +22,42 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
         }
 
-        label {
-            display: block;
-            margin-top: 10px;
-        }
-
-        select, input {
-            margin-top: 5px;
-            padding: 8px;
+        .swiper-container {
             width: 100%;
-            box-sizing: border-box;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-button img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .image-button img:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        label, select, input, button {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
         }
 
         button {
-            margin-top: 10px;
             padding: 10px;
             background-color: #007BFF;
             color: #fff;
@@ -53,7 +74,6 @@
             margin-top: 20px;
             font-weight: bold;
         }
-
     </style>
     <title>Calculadora de Resolución de Transformadas</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -83,8 +103,32 @@
             <option value="16">16. u(t) cos(at)</option>
             <option value="17">17. u(t) sin(at)</option>
             <option value="18">18. t^n u(t)</option>
-            
         </select>
+        <div class="swiper-container">
+            <div class="swiper-wrapper" id="buttonContainer">
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(1)"><img src="img/transformada.png" alt="Función 1"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(2)"><img src="img/transformada.png" alt="Función 2"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(3)"><img src="img/transformada.png" alt="Función 3"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(4)"><img src="img/transformada.png" alt="Función 4"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(5)"><img src="img/transformada.png" alt="Función 5"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(6)"><img src="img/transformada.png" alt="Función 6"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(7)"><img src="img/transformada.png" alt="Función 7"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(8)"><img src="img/transformada.png" alt="Función 8"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(9)"><img src="img/transformada.png" alt="Función 9"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(10)"><img src="img/transformada.png" alt="Función 10"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(11)"><img src="img/transformada.png" alt="Función 11"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(12)"><img src="img/transformada.png" alt="Función 12"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(13)"><img src="img/transformada.png" alt="Función 13"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(14)"><img src="img/transformada.png" alt="Función 14"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(15)"><img src="img/transformada.png" alt="Función 15"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(16)"><img src="img/transformada.png" alt="Función 16"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(17)"><img src="img/transformada.png" alt="Función 17"></div></div>
+                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(18)"><img src="img/transformada.png" alt="Función 18"></div></div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
 
         <div id="inputFields"></div>
 
@@ -98,33 +142,36 @@
         <p id="resolution" class="result"></p>
     </div>
 
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-    function entradas_XD() {
-        const select = document.getElementById('selectProperty');
+    let selectedFunction = null;
+
+    function entradas_XD(funcion) {
+        selectedFunction = funcion;
         const inputFieldsDiv = document.getElementById('inputFields');
         inputFieldsDiv.innerHTML = '';
 
-        switch (select.value) {
-            case '1':
-            case '2':
-            case '3':
-            case '6':
-            case '11':
-            case '12':
-            case '13':
-            case '16':
-            case '17':
+        switch (funcion) {
+            case 1:
+            case 2:
+            case 3:
+            case 6:
+            case 11:
+            case 12:
+            case 13:
+            case 16:
+            case 17:
                 inputFieldsDiv.innerHTML = `
                     <label for="aValue">Ingrese el valor de a:</label>
                     <input type="number" id="aValue" step="any">
                 `;
                 break;
-            case '4':
-            case '5':
-            case '8':
-            case '9':
-            case '14':
-            case '15':
+            case 4:
+            case 5:
+            case 8:
+            case 9:
+            case 14:
+            case 15:
                 inputFieldsDiv.innerHTML = `
                     <label for="aValue">Ingrese el valor de a:</label>
                     <input type="number" id="aValue" step="any">
@@ -132,8 +179,7 @@
                     <input type="number" id="bValue" step="any">
                 `;
                 break;
-                break;
-            case '7':
+            case 7:
                 inputFieldsDiv.innerHTML = `
                     <label for="nValue">Ingrese el valor de n:</label>
                     <input type="number" id="nValue" step="any">
@@ -141,7 +187,7 @@
                     <input type="number" id="aValue" step="any">
                 `;
                 break;
-            case '10':
+            case 10:
                 inputFieldsDiv.innerHTML = `
                     <label for="bValue">Ingrese el valor de b:</label>
                     <input type="number" id="bValue" step="any">
@@ -156,7 +202,6 @@
 
     function calcular_todo() {
         const notaciondeLeibnitz = document.getElementById('notation');
-        const select = document.getElementById('selectProperty');
         const resultado1 = document.getElementById('result');
         const formula1 = document.getElementById('formula');
         const equivalencia1 = document.getElementById('equivalence');
@@ -174,43 +219,44 @@
         const b_Valor = document.getElementById('bValue') ? parseFloat(document.getElementById('bValue').value) : null;
         const n_Valor = document.getElementById('nValue') ? parseFloat(document.getElementById('nValue').value) : null;
 
-        if (isNaN(a_Valor) || ((select.value === '4' || select.value === '5' || select.value === '7' || select.value === '8' || select.value === '9' || select.value === '11' || select.value === '12' || select.value === '13' || select.value === '14' || select.value === '15' || select.value === '16' || select.value === '17') && (isNaN(b_Valor) || ((select.value === '7' | select.value === '10') && isNaN(n_Valor))))) {
+        if (isNaN(a_Valor) || ((selectedFunction === 4 || selectedFunction === 5 || selectedFunction === 7 || selectedFunction === 8 || selectedFunction === 9 || selectedFunction === 10 || selectedFunction === 14 || selectedFunction === 15) && (isNaN(b_Valor) || ((selectedFunction === 7 || selectedFunction === 10) && isNaN(n_Valor))))) {
             alert('Por favor, ingrese valores válidos para a, b y n.');
             return;
         }
+
         function factorial(num) {
             if (num === 0) return 1;
             return num * factorial(num - 1);
         }
 
-        switch (select.value) {
-            case '1':
+        switch (selectedFunction) {
+            case 1:
                 notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(\\sin(${a_Valor}t)) = ${a_Valor} \\cos(${a_Valor}t) \\)`;
                 resultado = `\\( \\mathcal{L}\\{\\sin(${a_Valor}t)\\} \\)`;
                 formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\sin(at)\\} = \\frac{a}{s^2 + a^2} \\)';
                 equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
                 sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\sin(${a_Valor}t)\\} = \\frac{${a_Valor}}{s^2 + ${a_Valor}^2} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{${a_Valor}}{s^2 + ${a_Valor*a_Valor}} \\)`;
+                resolucion = `La Resolución de la función es: \\( \\frac{${a_Valor}}{s^2 + ${a_Valor * a_Valor}} \\)`;
                 break;
 
-            case '2':
-                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}\\sinh(${a_Valor}t) = ${a_Valor} \\cosh(${a_Valor}t) \\)`;
-                resultado = `\\( \\mathcal{L}\\{\\sinh(${a_Valor}t)\\} = \\mathcal{L}\\{\\sinh(at)\\}\\)`;
-                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\sinh(at)\\} = \\frac{a}{s^2 - a^2} \\)';
-                equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
-                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\sinh(${a_Valor}t)\\} = \\frac{${a_Valor}}{s^2 - ${a_Valor}^2} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{${a_Valor}}{s^2 - ${a_Valor*a_Valor}} \\)`;
-                break;
-
-            case '3':
-                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}\\cos(${a_Valor}t) = -${a_Valor} \\sin(${a_Valor}t) \\)`;
-                resultado = `\\( \\mathcal{L}\\{\\cos(${a_Valor}t)\\} = \\mathcal{L}\\{\\cos(at)\\} \\)`;
+            case 2:
+                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(\\cos(${a_Valor}t)) = -${a_Valor} \\sin(${a_Valor}t) \\)`;
+                resultado = `\\( \\mathcal{L}\\{\\cos(${a_Valor}t)\\} \\)`;
                 formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\cos(at)\\} = \\frac{s}{s^2 + a^2} \\)';
                 equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
                 sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\cos(${a_Valor}t)\\} = \\frac{s}{s^2 + ${a_Valor}^2} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{s}{s^2 + ${a_Valor*a_Valor}} \\)`;
+                resolucion = `La Resolución de la función es: \\( \\frac{s}{s^2 + ${a_Valor * a_Valor}} \\)`;
                 break;
 
+            case 3:
+                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(\\sinh(${a_Valor}t)) = ${a_Valor} \\cosh(${a_Valor}t) \\)`;
+                resultado = `\\( \\mathcal{L}\\{\\sinh(${a_Valor}t)\\} \\)`;
+                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\sinh(at)\\} = \\frac{a}{s^2 - a^2} \\)';
+                equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
+                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\sinh(${a_Valor}t)\\} = \\frac{${a_Valor}}{s^2 - ${a_Valor}^2} \\)`;
+                resolucion = `La Resolución de la función es: \\( \\frac{${a_Valor}}{s^2 - ${a_Valor * a_Valor}} \\)`;
+                break;
+            
             case '4':
                 notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}\\cosh(${a_Valor}t) = ${a_Valor} \\sinh(${a_Valor}t) \\)`;
                 resultado = `\\( \\mathcal{L}\\{\\cosh(${a_Valor}t)\\} = \\mathcal{L}\\{\\cosh(at)\\} \\)`;
@@ -329,18 +375,35 @@
                 resolucion = `La Resolución de la función es: \\( \\frac{${a_Valor}}{s^2 + ${a_Valor*a_Valor}} \\)`;
             break;
             default:
-                alert('Seleccione una función válida.');
-                return;
+                notacion = 'Función no implementada.';
+                break;
         }
 
         notaciondeLeibnitz.innerHTML = notacion;
-        resultado1.innerHTML = `La Transformada de la función es: ${resultado}`;
+        resultado1.innerHTML = resultado;
         formula1.innerHTML = formula;
         equivalencia1.innerHTML = equivalencia;
         sustitucion1.innerHTML = sustitucion;
         resolucion1.innerHTML = resolucion;
+
         MathJax.typeset();
     }
+
+    // Inicializa el carrusel
+    var swiper = new Swiper('.swiper-container', {
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        slidesPerView: 1,
+        spaceBetween: 10,
+        centeredSlides: true,
+        loop: true,
+    });
     </script>
 </body>
 </html>
