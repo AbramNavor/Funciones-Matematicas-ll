@@ -712,22 +712,6 @@
                 sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{u(t) \\sin(${a_Valor}t)\\} = \\frac{${a_Valor}}{s^2 + ${a_Valor}^2} \\)`;
                 resolucion = `La Resolución de la función es: \\( \\frac{${a_Valor}}{s^2 + ${a_Valor*a_Valor}} \\)`;
                 break;
-                case 26:
-                    notacion = "F_{n+1} = \\sum_{i=0}^{n} F_i";
-                    resultado = (n_Valor * (n_Valor + 1)) / 2;
-                    formula = "F_{n+1} = \\sum_{i=0}^{n} F_i";
-                    equivalencia = `F_{n+1} = \\sum_{i=0}^{n} F_i = (n * (n + 1)) / 2`;
-                    sustitucion = `n = ${n_Valor}`;
-                    resolucion = `F_{n+1} = ${resultado}`;
-                    break;
-                case 27:
-                    notacion = "F_{n+2} = \\sum_{i=0}^{n+1} F_i";
-                    resultado = ((n_Valor + 1) * (n_Valor + 2)) / 2;
-                    formula = "F_{n+2} = \\sum_{i=0}^{n+1} F_i";
-                    equivalencia = `F_{n+2} = \\sum_{i=0}^{n+1} F_i = ((n + 1) * (n + 2)) / 2`;
-                    sustitucion = `n = ${n_Valor}`;
-                    resolucion = `F_{n+2} = ${resultado}`;
-                    break;
                 default:
                     alert("Función no implementada todavía.");
                     return;
