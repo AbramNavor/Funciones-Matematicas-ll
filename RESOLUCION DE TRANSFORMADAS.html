@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: "Arial", sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
@@ -38,11 +39,20 @@
             align-items: center;
         }
 
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .image-button img:hover {
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
         }
 
-        label, select, input, button {
+        label,
+        select,
+        input,
+        button {
             display: block;
             width: 100%;
             margin-top: 10px;
@@ -50,7 +60,7 @@
 
         button {
             padding: 10px;
-            background-color: #007BFF;
+            background-color: #007bff;
             color: #fff;
             border: none;
             border-radius: 4px;
@@ -70,112 +80,290 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
+
 <body>
     <div class="container">
         <h1>Funciones</h1>
         <label for="selectProperty">Elija la función a calcular:</label>
-        <select id="selectProperty" onchange="entradas_XD()">
-            <option value=""></option>
-            <option value="1">1. 1</option>
-            <option value="2">2. t</option>
-            <option value="3">3. t^2</option>
-            <option value="4">4. t^n</option>
-            <option value="5">5. e^at</option>
-            <option value="6">6. cos(bt)</option>
-            <option value="7">7. sin(bt)</option>
-            <option value="8">8. sinh(bt)</option>
-            <option value="9">9. cosh(bt)</option>
-            <option value="10">10. e^(at) cos(bt)</option>
-            <option value="11">11. e^(at) sin(bt)</option>
-            <option value="12">12. s(a-t)</option>
-            <option value="13">13. u(a-t)</option>
-            <option value="14">14. te^at</option>
-            <option value="15">15. t^n e^at</option>
-            <option value="16">16. sinh(at) cosh(bt)</option>
-            <option value="17">17. cosh(at) sinh(bt)</option>
-            <option value="18">18. $$\int_{0}^{t} f(r) \, dr$$</option>
-            <option value="19">19. e^bt t^n</option>
-            <option value="20">20. t sin (at)</option>
-            <option value="21">21. t cos (at)</option>
-            <option value="22">22. sin (at + b)</option>
-            <option value="23">23. cos (at + b)</option>
-            <option value="24">24. u(t) cos(at)</option>
-            <option value="25">25. u(t) sin(at)</option>
-            <option value="26">26. t^n u(t)</option>
-            <option value="27">27. e^(-at) u(t)</option>
-            <option value="28">28. t^n e^(at) u(t)</option>
-            <option value="29">29. u(t-a) cos(b(t-a))</option>
-            <option value="30">30. u(t-a) sin(b(t-a))</option>
-            <option value="31">31. te^(-at) cos(bt)</option>
-            <option value="32">32. te^(-at) sin(bt)</option>
-            <option value="33">33. e^(-at) cosh(bt)</option>
-            <option value="34">34. e^(-at) sinh(bt)</option>
-            <option value="35">35. t^m e^(bt)</option>
-            <option value="36">36. t^m e^(-bt)</option>
-            <option value="37">37. u(t-a) cos(bt)</option>
-            <option value="38">38. u(t-a) sin(bt)</option>
-            <option value="39">39. u(t-a) cos(bt)</option>
-            <option value="40">40. u(t-a) cosh(bt)</option>
-            <option value="41">41. u(t-a) sinh(bt)</option>
-            <option value="42">42. u(t-a) cos(bt)</option>
-            <option value="43">43. e^(at) sinh(bt)</option>
-            <option value="44">44. te^(at) sin(bt)</option>
-            <option value="45">45. te^(at) cos(bt)</option>
-            <option value="46">46. cos(at) sin(bt)</option>
-            <option value="47">47. sin(at) cos(bt)</option>
-            <option value="48">48. u(t) cosh(bt)</option>
-            <option value="49">49. u(t) sinh(bt)</option>
-        </select>
         <div class="swiper-container">
+            <select id="selectProperty" onchange="entradas_XD()">
+                <option value=""></option>
+                <option value="1">1. 1</option>
+                <option value="2">2. t</option>
+                <option value="3">3. t^2</option>
+                <option value="4">4. t^n</option>
+                <option value="5">5. e^at</option>
+                <option value="6">6. cos(bt)</option>
+                <option value="7">7. sin(bt)</option>
+                <option value="8">8. sinh(bt)</option>
+                <option value="9">9. cosh(bt)</option>
+                <option value="10">10. e^(at) cos(bt)</option>
+                <option value="11">11. e^(at) sin(bt)</option>
+                <option value="12">12. s(a-t)</option>
+                <option value="13">13. u(a-t)</option>
+                <option value="14">14. te^at</option>
+                <option value="15">15. t^n e^at</option>
+                <option value="16">16. sinh(at) cosh(bt)</option>
+                <option value="17">17. cosh(at) sinh(bt)</option>
+                <option value="18">18. $$\int_{0}^{t} f(r) \, dr$$</option>
+                <option value="19">19. e^bt t^n</option>
+                <option value="20">20. t sin (at)</option>
+                <option value="21">21. t cos (at)</option>
+                <option value="22">22. sin (at + b)</option>
+                <option value="23">23. cos (at + b)</option>
+                <option value="24">24. u(t) cos(at)</option>
+                <option value="25">25. u(t) sin(at)</option>
+                <option value="26">26. t^n u(t)</option>
+                <option value="27">27. e^(-at) u(t)</option>
+                <option value="28">28. t^n e^(at) u(t)</option>
+                <option value="29">29. u(t-a) cos(b(t-a))</option>
+                <option value="30">30. u(t-a) sin(b(t-a))</option>
+                <option value="31">31. te^(-at) cos(bt)</option>
+                <option value="32">32. te^(-at) sin(bt)</option>
+                <option value="33">33. e^(-at) cosh(bt)</option>
+                <option value="34">34. e^(-at) sinh(bt)</option>
+                <option value="35">35. t^m e^(bt)</option>
+                <option value="36">36. t^m e^(-bt)</option>
+                <option value="37">37. u(t-a) cos(bt)</option>
+                <option value="38">38. u(t-a) sin(bt)</option>
+                <option value="39">39. u(t-a) cos(bt)</option>
+                <option value="40">40. u(t-a) cosh(bt)</option>
+                <option value="41">41. u(t-a) sinh(bt)</option>
+                <option value="42">42. u(t-a) cos(bt)</option>
+                <option value="43">43. e^(at) sinh(bt)</option>
+                <option value="44">44. te^(at) sin(bt)</option>
+                <option value="45">45. te^(at) cos(bt)</option>
+                <option value="46">46. cos(at) sin(bt)</option>
+                <option value="47">47. sin(at) cos(bt)</option>
+                <option value="48">48. u(t) cosh(bt)</option>
+                <option value="49">49. u(t) sinh(bt)</option>
+            </select>
             <div class="swiper-wrapper" id="buttonContainer">
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(1)"><img src="img/1.jpg" alt="Función 1"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(2)"><img src="img/transformada.png" alt="Función 2"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(3)"><img src="img/transformada.png" alt="Función 3"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(4)"><img src="img/transformada.png" alt="Función 4"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(5)"><img src="img/transformada.png" alt="Función 5"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(6)"><img src="img/transformada.png" alt="Función 6"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(7)"><img src="img/transformada.png" alt="Función 7"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(8)"><img src="img/transformada.png" alt="Función 8"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(9)"><img src="img/transformada.png" alt="Función 9"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(10)"><img src="img/transformada.png" alt="Función 10"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(11)"><img src="img/transformada.png" alt="Función 11"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(12)"><img src="img/transformada.png" alt="Función 12"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(13)"><img src="img/transformada.png" alt="Función 13"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(14)"><img src="img/transformada.png" alt="Función 14"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(15)"><img src="img/transformada.png" alt="Función 15"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(16)"><img src="img/transformada.png" alt="Función 16"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(17)"><img src="img/transformada.png" alt="Función 17"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(18)"><img src="img/transformada.png" alt="Función 18"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(19)"><img src="img/transformada.png" alt="Función 19"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(20)"><img src="img/transformada.png" alt="Función 20"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(21)"><img src="img/transformada.png" alt="Función 21"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(22)"><img src="img/transformada.png" alt="Función 22"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(23)"><img src="img/transformada.png" alt="Función 23"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(24)"><img src="img/transformada.png" alt="Función 24"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(25)"><img src="img/transformada.png" alt="Función 25"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(26)"><img src="img/transformada.png" alt="Función 26"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(27)"><img src="img/transformada.png" alt="Función 27"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(28)"><img src="img/transformada.png" alt="Función 28"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(29)"><img src="img/transformada.png" alt="Función 29"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(30)"><img src="img/transformada.png" alt="Función 30"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(31)"><img src="img/transformada.png" alt="Función 31"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(32)"><img src="img/transformada.png" alt="Función 32"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(33)"><img src="img/transformada.png" alt="Función 33"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(34)"><img src="img/transformada.png" alt="Función 34"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(35)"><img src="img/transformada.png" alt="Función 35"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(36)"><img src="img/1.jpg" alt="Función 36"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(37)"><img src="img/transformada.png" alt="Función 37"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(38)"><img src="img/transformada.png" alt="Función 38"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(39)"><img src="img/transformada.png" alt="Función 39"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(40)"><img src="img/transformada.png" alt="Función 40"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(41)"><img src="img/transformada.png" alt="Función 41"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(42)"><img src="img/transformada.png" alt="Función 42"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(43)"><img src="img/transformada.png" alt="Función 43"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(44)"><img src="img/transformada.png" alt="Función 44"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(45)"><img src="img/transformada.png" alt="Función 45"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(46)"><img src="img/transformada.png" alt="Función 46"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(47)"><img src="img/transformada.png" alt="Función 47"></div></div>
-                <div class="swiper-slide"><div class="image-button" onclick="entradas_XD(48)"><img src="img/transformada.png" alt="Función 48"></div></div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(4)">
+                        <img src="img/4.png" alt="Función 4" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(5)">
+                        <img src="img/5.png" alt="Función 5" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(6)">
+                        <img src="img/6.png" alt="Función 6" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(7)">
+                        <img src="img/7.png" alt="Función 7" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(8)">
+                        <img src="img/8.png" alt="Función 8" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(9)">
+                        <img src="img/9.png" alt="Función 9" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(10)">
+                        <img src="img/10.png" alt="Función 10" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(11)">
+                        <img src="img/11.png" alt="Función 11" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(12)">
+                        <img src="img/12.png" alt="Función 12" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(13)">
+                        <img src="img/13.png" alt="Función 13" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(14)">
+                        <img src="img/14.png" alt="Función 14" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(15)">
+                        <img src="img/15.png" alt="Función 15" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(16)">
+                        <img src="img/16.png" alt="Función 16" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(17)">
+                        <img src="img/17.png" alt="Función 17" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(18)">
+                        <img src="img/18.png" alt="Función 18" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(19)">
+                        <img src="img/19.png" alt="Función 19" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(20)">
+                        <img src="img/20.png" alt="Función 20" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(21)">
+                        <img src="img/21.png" alt="Función 21" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(22)">
+                        <img src="img/22.png" alt="Función 22" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(23)">
+                        <img src="img/23.png" alt="Función 23" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(24)">
+                        <img src="img/24.png" alt="Función 24" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(25)">
+                        <img src="img/25.png" alt="Función 25" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(26)">
+                        <img src="img/26.png" alt="Función 26" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(27)">
+                        <img src="img/27.png" alt="Función 27" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(28)">
+                        <img src="img/28.png" alt="Función 28" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(29)">
+                        <img src="img/29.png" alt="Función 29" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(30)">
+                        <img src="img/30.png" alt="Función 30" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(31)">
+                        <img src="img/31.png" alt="Función 31" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(32)">
+                        <img src="img/32.png" alt="Función 32" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(33)">
+                        <img src="img/33.png" alt="Función 33" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(34)">
+                        <img src="img/34.png" alt="Función 34" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(35)">
+                        <img src="img/35.png" alt="Función 35" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(36)">
+                        <img src="img/36.png" alt="Función 36" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(37)">
+                        <img src="img/37.png" alt="Función 37" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(38)">
+                        <img src="img/38.png" alt="Función 38" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(39)">
+                        <img src="img/39.png" alt="Función 39" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(40)">
+                        <img src="img/40.png" alt="Función 40" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(41)">
+                        <img src="img/41.png" alt="Función 41" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(42)">
+                        <img src="img/42.png" alt="Función 42" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(43)">
+                        <img src="43" alt="Función 43" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(44)">
+                        <img src="img/44.png" alt="Función 44" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(45)">
+                        <img src="img/45.png" alt="Función 45" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(46)">
+                        <img src="img/46.png" alt="Función 46" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(47)">
+                        <img src="img/47.png" alt="Función 47" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="image-button" onclick="entradas_XD(48)">
+                        <img src="img/48.png" alt="Función 48" />
+                    </div>
+                </div>
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -196,305 +384,377 @@
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-    let selectedFunction = null;
+        let selectedFunction = null;
 
-    function entradas_XD(funcion) {
-        selectedFunction = funcion;
-        const inputFieldsDiv = document.getElementById('inputFields');
-        inputFieldsDiv.innerHTML = '';
+        function entradas_XD(funcion) {
+            selectedFunction = funcion;
+            const inputFieldsDiv = document.getElementById("inputFields");
+            inputFieldsDiv.innerHTML = "";
 
-        switch (funcion) {
-            case 4:
-            case 26:
-            case 27:
-                inputFieldsDiv.innerHTML = `
-                    <label for="nValue">Ingrese el valor de n:</label>
-                    <input type="number" id="nValue" step="any">
-                `;
-                break;
-            case 5:
-            case 12:
-            case 13:
-            case 14:
-            case 18:
-            case 20:
-            case 21:
-            case 24:
-            case 25:
-                inputFieldsDiv.innerHTML = `
-                    <label for="aValue">Ingrese el valor de a:</label>
-                    <input type="number" id="aValue" step="any">
-                `;
-                break;
-            case 6:
-            case 7:
-            case 8:
-            case 9:
-            case 48:
-            case 49:
-                inputFieldsDiv.innerHTML = `
-                <label for="bValue">Ingrese el valor de b:</label>
-                <input type="number" id="bValue" step="any">
-                `;
-                break;
-            case 10:
-            case 11:
-            case 16:
-            case 17:
-            case 22:
-            case 23:
-            case 29:
-            case 30:
-            case 31:
-            case 32:
-            case 33:
-            case 34:
-            case 37:
-            case 38:
-            case 39:
-            case 40:
-            case 41:
-            case 42:
-            case 43:
-            case 44:
-            case 45:
-            case 46:
-            case 47:
-                inputFieldsDiv.innerHTML = `
-                    <label for="aValue">Ingrese el valor de a:</label>
-                    <input type="number" id="aValue" step="any">
-                    <label for="bValue">Ingrese el valor de b:</label>
-                    <input type="number" id="bValue" step="any">
-                `;
-                break;
-            case 15:
-            case 28:
-                inputFieldsDiv.innerHTML = `
-                    <label for="nValue">Ingrese el valor de n:</label>
-                    <input type="number" id="nValue" step="any">
-                    <label for="aValue">Ingrese el valor de a:</label>
-                    <input type="number" id="aValue" step="any">
-                `;
-                break;
-            case 19:
-            case 35:
-            case 36:
-                inputFieldsDiv.innerHTML = `
-                    <label for="bValue">Ingrese el valor de b:</label>
-                    <input type="number" id="bValue" step="any">
-                    <label for="nValue">Ingrese el valor de n:</label>
-                    <input type="number" id="nValue" step="any">
-                `;
-                break;
-            default:
-                break;
-        }
-    }
-
-    function calcular_todo() {
-        const notaciondeLeibnitz = document.getElementById('notation');
-        const resultado1 = document.getElementById('result');
-        const formula1 = document.getElementById('formula');
-        const equivalencia1 = document.getElementById('equivalence');
-        const sustitucion1 = document.getElementById('substitution');
-        const resolucion1 = document.getElementById('resolution');
-
-        let notacion = '';
-        let resultado = '';
-        let formula = '';
-        let equivalencia = '';
-        let sustitucion = '';
-        let resolucion = '';
-
-        const a_Valor = document.getElementById('aValue') ? parseFloat(document.getElementById('aValue').value) : null;
-        const b_Valor = document.getElementById('bValue') ? parseFloat(document.getElementById('bValue').value) : null;
-        const n_Valor = document.getElementById('nValue') ? parseFloat(document.getElementById('nValue').value) : null;
-
-        if (isNaN(aValue) || isNaN(bValue) || isNaN(nValue)) {
-            alert('Por favor, ingrese valores numéricos para a, b y n.');
-            return;
+            switch (funcion) {
+                case 4:
+                case 26:
+                case 27:
+                    inputFieldsDiv.innerHTML = `
+              <label for="nValue">Ingrese el valor de n:</label>
+              <input type="number" id="nValue" step="any">
+            `;
+                    break;
+                case 5:
+                case 12:
+                case 13:
+                case 14:
+                case 18:
+                case 20:
+                case 21:
+                case 24:
+                case 25:
+                    inputFieldsDiv.innerHTML = `
+              <label for="aValue">Ingrese el valor de a:</label>
+              <input type="number" id="aValue" step="any">
+            `;
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                case 48:
+                case 49:
+                    inputFieldsDiv.innerHTML = `
+              <label for="bValue">Ingrese el valor de b:</label>
+              <input type="number" id="bValue" step="any">
+            `;
+                    break;
+                case 10:
+                case 11:
+                case 16:
+                case 17:
+                case 22:
+                case 23:
+                case 29:
+                case 30:
+                case 31:
+                case 32:
+                case 33:
+                case 34:
+                case 37:
+                case 38:
+                case 39:
+                case 40:
+                case 41:
+                case 42:
+                case 43:
+                case 44:
+                case 45:
+                case 46:
+                case 47:
+                    inputFieldsDiv.innerHTML = `
+              <label for="aValue">Ingrese el valor de a:</label>
+              <input type="number" id="aValue" step="any">
+              <label for="bValue">Ingrese el valor de b:</label>
+              <input type="number" id="bValue" step="any">
+            `;
+                    break;
+                case 15:
+                case 28:
+                    inputFieldsDiv.innerHTML = `
+              <label for="nValue">Ingrese el valor de n:</label>
+              <input type="number" id="nValue" step="any">
+              <label for="aValue">Ingrese el valor de a:</label>
+              <input type="number" id="aValue" step="any">
+            `;
+                    break;
+                case 19:
+                case 35:
+                case 36:
+                    inputFieldsDiv.innerHTML = `
+              <label for="bValue">Ingrese el valor de b:</label>
+              <input type="number" id="bValue" step="any">
+              <label for="nValue">Ingrese el valor de n:</label>
+              <input type="number" id="nValue" step="any">
+            `;
+                    break;
+                default:
+                    break;
+            }
         }
 
-        function factorial(num) {
-            if (num === 0) return 1;
-            return num * factorial(num - 1);
+        function factorial(n) {
+            if (n === 0 || n === 1) {
+                return 1;
+            } else {
+                let result = 1;
+                for (let i = 2; i <= n; i++) {
+                    result *= i;
+                }
+                return result;
+            }
         }
 
-        switch (selectedFunction) {
-            case 1:
-                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(\\sin(${a_Valor}t)) = ${a_Valor} \\cos(${a_Valor}t) \\)`;
-                resultado = `\\( \\mathcal{L}\\{\\sin(${a_Valor}t)\\} \\)`;
-                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\sin(at)\\} = \\frac{a}{s^2 + a^2} \\)';
-                equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
-                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\sin(${a_Valor}t)\\} = \\frac{${a_Valor}}{s^2 + ${a_Valor}^2} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{${a_Valor}}{s^2 + ${a_Valor * a_Valor}} \\)`;
-                break;
+        function calcular_todo() {
+            const notaciondeLeibnitz = document.getElementById("notation");
+            const resultado1 = document.getElementById("result");
+            const formula1 = document.getElementById("formula");
+            const equivalencia1 = document.getElementById("equivalence");
+            const sustitucion1 = document.getElementById("substitution");
+            const resolucion1 = document.getElementById("resolution");
 
-            case 2:
-                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(\\cos(${a_Valor}t)) = -${a_Valor} \\sin(${a_Valor}t) \\)`;
-                resultado = `\\( \\mathcal{L}\\{\\cos(${a_Valor}t)\\} \\)`;
-                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\cos(at)\\} = \\frac{s}{s^2 + a^2} \\)';
-                equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
-                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\cos(${a_Valor}t)\\} = \\frac{s}{s^2 + ${a_Valor}^2} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{s}{s^2 + ${a_Valor * a_Valor}} \\)`;
-                break;
+            let notacion = "";
+            let resultado = "";
+            let formula = "";
+            let equivalencia = "";
+            let sustitucion = "";
+            let resolucion = "";
 
-            case 3:
-                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(\\sinh(${a_Valor}t)) = ${a_Valor} \\cosh(${a_Valor}t) \\)`;
-                resultado = `\\( \\mathcal{L}\\{\\sinh(${a_Valor}t)\\} \\)`;
-                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\sinh(at)\\} = \\frac{a}{s^2 - a^2} \\)';
-                equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
-                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\sinh(${a_Valor}t)\\} = \\frac{${a_Valor}}{s^2 - ${a_Valor}^2} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{${a_Valor}}{s^2 - ${a_Valor * a_Valor}} \\)`;
-                break;
-            
-            case '4':
-                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}\\cosh(${a_Valor}t) = ${a_Valor} \\sinh(${a_Valor}t) \\)`;
-                resultado = `\\( \\mathcal{L}\\{\\cosh(${a_Valor}t)\\} = \\mathcal{L}\\{\\cosh(at)\\} \\)`;
-                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\cosh(at)\\} = \\frac{s}{s^2 - a^2} \\)';
-                equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
-                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\cosh(${a_Valor}t)\\} = \\frac{s}{s^2 - (${a_Valor})^2} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{s}{s^2 - ${a_Valor*a_Valor}} \\)`;
-                break;
+            const a_Valor = document.getElementById("aValue") ? parseFloat(document.getElementById("aValue").value) : null;
+            const b_Valor = document.getElementById("bValue") ? parseFloat(document.getElementById("bValue").value) : null;
+            const n_Valor = document.getElementById("nValue") ? parseFloat(document.getElementById("nValue").value) : null;
 
-            case '5':
-                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(e^{${a_Valor}t} \\sin(${b_Valor}t)) = ${a_Valor}e^{${a_Valor}t} \\sin(${b_Valor}t) + ${b_Valor}e^{${a_Valor}t} \\cos(${b_Valor}t) \\)`;
-                resultado = `\\( \\mathcal{L}\\{e^{${a_Valor}t} \\sin(${b_Valor}t)\\} = \\mathcal{L}\\{e^{at} \\sin(bt)\\}\\)`;
-                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{e^{at} \\sin(bt)\\} = \\frac{b}{(s-a)^2 + b^2} \\)';
-                equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor}, b = ${b_Valor} \\)`;
-                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{e^{${a_Valor}t} \\sin(${b_Valor}t)\\} = \\frac{${b_Valor}}{(s-${a_Valor})^2 + ${b_Valor}^2} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{${b_Valor}}{(s-${a_Valor})^2 + ${b_Valor*b_Valor}} \\)`;
-                break;
+            if (selectedFunction === 4 && isNaN(n_Valor)) {
+                alert("Por favor, ingrese un valor válido para n.");
+                return;
+            }
+            if ([5, 12, 13, 14, 18, 20, 21, 24, 25].includes(selectedFunction) && isNaN(a_Valor)) {
+                alert("Por favor, ingrese un valor válido para a.");
+                return;
+            }
+            if ([6, 7, 8, 9, 48, 49].includes(selectedFunction) && isNaN(b_Valor)) {
+                alert("Por favor, ingrese un valor válido para b.");
+                return;
+            }
+            if (
+                [
+                    10, 11, 16, 17, 22, 23, 29, 30, 31, 32, 33, 34, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47
+                ].includes(selectedFunction) &&
+                (isNaN(a_Valor) || isNaN(b_Valor))
+            ) {
+                alert("Por favor, ingrese valores válidos para a y b.");
+                return;
+            }
+            if ([15, 28].includes(selectedFunction) && (isNaN(n_Valor) || isNaN(a_Valor))) {
+                alert("Por favor, ingrese valores válidos para n y a.");
+                return;
+            }
+            if ([19, 35, 36].includes(selectedFunction) && (isNaN(b_Valor) || isNaN(n_Valor))) {
+                alert("Por favor, ingrese valores válidos para b y n.");
+                return;
+            }
 
-            case '6':
-                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(t e^{${a_Valor}t}) = e^{${a_Valor}t} + t ${a_Valor} e^{${a_Valor}t} \\)`;
-                resultado = `\\( \\mathcal{L}\\{t e^{${a_Valor}t}\\} = \\mathcal{L}\\{t e^{at}\\} \\)`;
-                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{t e^{at}\\} = \\frac{1}{(s-a)^2} \\)';
-                equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
-                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{t e^{${a_Valor}t}\\} = \\frac{1}{(s-${a_Valor})^2} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{1}{(s-${a_Valor*a_Valor})} \\)`;
-                break;
+            switch (selectedFunction) {
+                case 4:
+                    notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(t^n) = ${n_Valor} t^{${n_Valor - 1}} \\)`;
+                    resultado = `\\( \\mathcal{L}\\{t^${n_Valor}\\} = \\mathcal{L}\\{${factorial(n_Valor)}\\} \\)`;
+                    formula = "La Fórmula General de la transformada es: \\( \\mathcal{L}\\{t^n\\} = \\frac{n!}{s^{n+1}} \\)";
+                    equivalencia = `La Equivalencia de la función es: \\( n = ${n_Valor} \\)`;
+                    sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{t^n\\} = \\frac{${resultado}}{s^{${n_Valor + 1}}} \\)`;
+                    resolucion = `La Resolución de la función es: \\( \\frac{${resultado}}{s^{${n_Valor + 1}}} \\)`;
+                    break;
+                case 5:
+                    notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(e^{${a_Valor}t}) = ${a_Valor} e^{${a_Valor}t} \\)`;
+                    resultado = `\\( \\mathcal{L}\\{e^{${a_Valor}t}\\} = \\mathcal{L}\\{e^{at}\\} \\)`;
+                    formula = "La Fórmula General de la transformada es: \\( \\mathcal{L}\\{e^{at}\\} = \\frac{1}{s - a} \\)";
+                    equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
+                    sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{e^{${a_Valor}t}\\} = \\frac{1}{s - ${a_Valor}} \\)`;
+                    resolucion = `La Resolución de la función es: \\( \\frac{1}{s - ${a_Valor}} \\)`;
+                    break;
+                case 6:
+                    notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(\\cos(${b_Valor}t)) = -${b_Valor} \\sin(${b_Valor}t) \\)`;
+                    resultado = `\\( \\mathcal{L}\\{\\cos(${b_Valor}t)\\} = \\mathcal{L}\\{\\cos(bt)\\} \\)`;
+                    formula = "La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\cos(bt)\\} = \\frac{s}{s^2 + b^2} \\)";
+                    equivalencia = `La Equivalencia de la función es: \\( b = ${b_Valor} \\)`;
+                    sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\cos(${b_Valor}t)\\} = \\frac{s}{s^2 + ${b_Valor}^2} \\)`;
+                    resolucion = `La Resolución de la función es: \\( \\frac{s}{s^2 + ${b_Valor * b_Valor}} \\)`;
+                    break;
+                case 7:
+                    notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(\\sin(${b_Valor}t)) = ${b_Valor} \\cos(${b_Valor}t) \\)`;
+                    resultado = `\\( \\mathcal{L}\\{\\sin(${b_Valor}t)\\} = \\mathcal{L}\\{\\sin(bt)\\} \\)`;
+                    formula = "La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\sin(bt)\\} = \\frac{b}{s^2 + b^2} \\)";
+                    equivalencia = `La Equivalencia de la función es: \\( b = ${b_Valor} \\)`;
+                    sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\sin(${b_Valor}t)\\} = \\frac{${b_Valor}}{s^2 + ${b_Valor}^2} \\)`;
+                    resolucion = `La Resolución de la función es: \\( \\frac{${b_Valor}}{s^2 + ${b_Valor * b_Valor}} \\)`;
+                    break;
+                case 8:
+                    notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(\\sinh(${b_Valor}t)) = ${b_Valor} \\cosh(${b_Valor}t) \\)`;
+                    resultado = `\\( \\mathcal{L}\\{\\sinh(${b_Valor}t)\\} = \\mathcal{L}\\{\\sinh(bt)\\} \\)`;
+                    formula = "La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\sinh(bt)\\} = \\frac{b}{s^2 - b^2} \\)";
+                    equivalencia = `La Equivalencia de la función es: \\( b = ${b_Valor} \\)`;
+                    sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\sinh(${b_Valor}t)\\} = \\frac{${b_Valor}}{s^2 - ${b_Valor}^2} \\)`;
+                    resolucion = `La Resolución de la función es: \\( \\frac{${b_Valor}}{s^2 - ${b_Valor * b_Valor}} \\)`;
+                    break;
+                case 9:
+                    notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(\\cosh(${b_Valor}t)) = ${b_Valor} \\sinh(${b_Valor}t) \\)`;
+                    resultado = `\\( \\mathcal{L}\\{\\cosh(${b_Valor}t)\\} = \\mathcal{L}\\{\\cosh(bt)\\} \\)`;
+                    formula = "La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\cosh(bt)\\} = \\frac{s}{s^2 - b^2} \\)";
+                    equivalencia = `La Equivalencia de la función es: \\( b = ${b_Valor} \\)`;
+                    sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\cosh(${b_Valor}t)\\} = \\frac{s}{s^2 - ${b_Valor}^2} \\)`;
+                    resolucion = `La Resolución de la función es: \\( \\frac{s}{s^2 - ${b_Valor * b_Valor}} \\)`;
+                    break;
+                case 10:
+                    notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(e^{${a_Valor}t} \\cos(${b_Valor}t)) = ${a_Valor} e^{${a_Valor}t} \\cos(${b_Valor}t) - ${b_Valor} e^{${a_Valor}t} \\sin(${b_Valor}t) \\)`;
+                    resultado = `\\( \\mathcal{L}\\{e^{${a_Valor}t} \\cos(${b_Valor}t)\\} = \\mathcal{L}\\{e^{at} \\cos(bt)\\} \\)`;
+                    formula = "La Fórmula General de la transformada es: \\( \\mathcal{L}\\{e^{at} \\cos(bt)\\} = \\frac{s - a}{(s - a)^2 + b^2} \\)";
+                    equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor}, b = ${b_Valor} \\)`;
+                    sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{e^{${a_Valor}t} \\cos(${b_Valor}t)\\} = \\frac{s - ${a_Valor}}{(s - ${a_Valor})^2 + ${b_Valor}^2} \\)`;
+                    resolucion = `La Resolución de la función es: \\( \\frac{s - ${a_Valor}}{(s - ${a_Valor})^2 + ${b_Valor * b_Valor}} \\)`;
+                    break;
+                case 11:
+                    notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(e^{${a_Valor}t} \\sin(${b_Valor}t)) = ${a_Valor} e^{${a_Valor}t} \\sin(${b_Valor}t) + ${b_Valor} e^{${a_Valor}t} \\cos(${b_Valor}t) \\)`;
+                    resultado = `\\( \\mathcal{L}\\{e^{${a_Valor}t} \\sin(${b_Valor}t)\\} = \\mathcal{L}\\{e^{at} \\sin(bt)\\} \\)`;
+                    formula = "La Fórmula General de la transformada es: \\( \\mathcal{L}\\{e^{at} \\sin(bt)\\} = \\frac{b}{(s - a)^2 + b^2} \\)";
+                    equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor}, b = ${b_Valor} \\)`;
+                    sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{e^{${a_Valor}t} \\sin(${b_Valor}t)\\} = \\frac{${b_Valor}}{(s - ${a_Valor})^2 + ${b_Valor}^2} \\)`;
+                    resolucion = `La Resolución de la función es: \\( \\frac{${b_Valor}}{(s - ${a_Valor})^2 + ${b_Valor * b_Valor}} \\)`;
+                    break;
+                case 12:
+                    notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(s(a-t)) = 0 \\)`;
+                    resultado = `\\( \\mathcal{L}\\{s(a-t)\\} \\)`;
+                    formula = "La Fórmula General de la transformada es: \\( \\mathcal{L}\\{s(a-t)\\} = \\frac{e^{-as}}{s} \\)";
+                    equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
+                    sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{s(a-t)\\} = \\frac{e^{-(${a_Valor})s}}{s} \\)`;
+                    resolucion = `La Resolución de la función es: \\( \\frac{e^{-(${a_Valor})s}}{s} \\)`;
+                    break;
+                case 13:
+                    notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(u(a-t)) = \\delta(a-t) \\)`;
+                    resultado = `\\( \\mathcal{L}\\{u(a-t)\\} \\)`;
+                    formula = "La Fórmula General de la transformada es: \\( \\mathcal{L}\\{u(a-t)\\} = \\frac{e^{-as}}{s} \\)";
+                    equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
+                    sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{u(a-t)\\} = \\frac{e^{-(${a_Valor})s}}{s} \\)`;
+                    resolucion = `La Resolución de la función es: \\( \\frac{e^{-(${a_Valor})s}}{s} \\)`;
+                    break;
+                case 14:
+                    notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(t e^{${a_Valor}t}) = e^{${a_Valor}t} + t ${a_Valor} e^{${a_Valor}t} \\)`;
+                    resultado = `\\( \\mathcal{L}\\{t e^{${a_Valor}t}\\} = \\mathcal{L}\\{t e^{at}\\} \\)`;
+                    formula = "La Fórmula General de la transformada es: \\( \\mathcal{L}\\{t e^{at}\\} = \\frac{1}{(s-a)^2} \\)";
+                    equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
+                    sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{t e^{${a_Valor}t}\\} = \\frac{1}{(s-${a_Valor})^2} \\)`;
+                    resolucion = `La Resolución de la función es: \\( \\frac{1}{(s-${a_Valor * a_Valor})} \\)`;
+                    break;
+                case 15:
+                    notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(t^n e^{${a_Valor}t}) = ${n_Valor} t^{${n_Valor - 1}} e^{${a_Valor}t} + ${a_Valor} t^n e^{${a_Valor}t} \\)`;
+                    resultado = `\\( \\mathcal{L}\\{t^n e^{${a_Valor}t}\\} \\)`;
+                    formula = "La Fórmula General de la transformada es: \\( \\mathcal{L}\\{t^n e^{at}\\} = \\frac{n!}{(s-a)^{n+1}} \\)";
+                    equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor}, n = ${n_Valor} \\)`;
+                    sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{t^n e^{${a_Valor}t}\\} = \\frac{${n_Valor}!}{(s-${a_Valor})^{${n_Valor + 1}}} \\)`;
+                    resolucion = `La Resolución de la función es: \\( \\frac{${n_Valor}!}{(s-${a_Valor})^{${n_Valor + 1}}} \\)`;
+                    break;
+                case 16:
+                    notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(\\sinh(${a_Valor}t) \\cosh(${b_Valor}t)) = ${a_Valor} \\cosh(${a_Valor}t) \\cosh(${b_Valor}t) + ${b_Valor} \\sinh(${a_Valor}t) \\sinh(${b_Valor}t) \\)`;
+                    resultado = `\\( \\mathcal{L}\\{\\sinh(${a_Valor}t) \\cosh(${b_Valor}t)\\} \\)`;
+                    formula = "La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\sinh(at) \\cosh(bt)\\} = \\frac{s}{(s^2 - a^2)(s^2 - b^2)} \\)";
+                    equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor}, b = ${b_Valor} \\)`;
+                    sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\sinh(${a_Valor}t) \\cosh(${b_Valor}t)\\} = \\frac{${a_Valor}}{(s^2 - ${a_Valor}^2)(s^2 - ${b_Valor}^2)} \\)`;
+                    resolucion = `La Resolución de la función es: \\( \\frac{${a_Valor}}{(s^2 - ${a_Valor * a_Valor})(s^2 - ${b_Valor * b_Valor})} \\)`;
+                    break;
+                case 17:
+                    notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(\\cosh(${a_Valor}t) \\sinh(${b_Valor}t)) = ${a_Valor} \\sinh(${a_Valor}t) \\sinh(${b_Valor}t) + ${b_Valor} \\cosh(${a_Valor}t) \\cosh(${b_Valor}t) \\)`;
+                    resultado = `\\( \\mathcal{L}\\{\\cosh(${a_Valor}t) \\sinh(${b_Valor}t)\\} \\)`;
+                    formula = "La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\cosh(at) \\sinh(bt)\\} = \\frac{s}{(s^2 - a^2)(s^2 - b^2)} \\)";
+                    equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor}, b = ${b_Valor} \\)`;
+                    sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\cosh(${a_Valor}t) \\sinh(${b_Valor}t)\\} = \\frac{s}{(s^2 - ${a_Valor}^2)(s^2 - ${b_Valor}^2)} \\)`;
+                    resolucion = `La Resolución de la función es: \\( \\frac{s}{(s^2 - ${a_Valor * a_Valor})(s^2 - ${b_Valor * b_Valor})} \\)`;
+                    break;
+                case 18:
 
-            case '7':
-                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(t^n e^{${a_Valor}t}) = n t^{n-1} e^{${a_Valor}t} + t^n ${a_Valor} e^{${a_Valor}t} \\)`;
-                resultado = `\\( \\mathcal{L}\\{t^n e^{${a_Valor}t}\\} = \\mathcal{L}\\{t^n e^{at}\\} \\)`;
-                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{t^n e^{at}\\} = \\frac{n!}{(s-a)^{n+1}} \\)';
-                equivalencia = `La Equivalencia de la función es: \\( n = ${n_Valor}, a = ${a_Valor} \\)`;
-                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{t^n e^{${a_Valor}t}\\} = \\frac{${n_Valor}!}{(s-${a_Valor})^{${n_Valor}+1}} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{${n_Valor}!}{(s-${a_Valor})^{${n_Valor+1}}} \\)`;
-                break;
-
-            case '8':
-                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(\\sinh(${a_Valor}t) \\cosh(${b_Valor}t)) = ${a_Valor}\\cosh(${a_Valor}t)\\cosh(${b_Valor}t) + ${b_Valor}\\sinh(${a_Valor}t)\\sinh(${b_Valor}t) \\)`;
-                resultado = `\\( \\mathcal{L}\\{\\sinh(${a_Valor}t) \\cosh(${b_Valor}t)\\} = \\mathcal{L}\\{\\sinh(at) \\cosh(bt)\\}\\)`;
-                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\sinh(at) \\cosh(bt)\\} = \\frac{s}{s^2 - (a^2 - b^2)} \\)';
-                equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor}, b = ${b_Valor} \\)`;
-                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\sinh(${a_Valor}t) \\cosh(${b_Valor}t)\\} = \\frac{s}{s^2 - (${a_Valor}^2 - ${b_Valor}^2)} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{s}{s^2 - (${a_Valor*a_Valor} - ${b_Valor*b_Valor})} \\)`;
-                break;
-            
-            case '9':
-                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(\\cosh(${a_Valor}t)\\sinh(${b_Valor}t)) = ${a_Valor}\\sinh(${a_Valor}t)\\cosh(${b_Valor}t) + ${b_Valor}\\cosh(${a_Valor}t)\\sinh(${b_Valor}t) \\)`;
-                resultado = `\\( \\mathcal{L}\\{\\cosh(${a_Valor}t)\\sinh(${b_Valor}t)\\} \\)`;
-                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\cosh(at)\\sinh(bt)\\} = \\frac{b}{s^2 - a^2} - \\frac{a}{s^2 - b^2} \\)';
-                equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor}, b = ${b_Valor} \\)`;
-                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\cosh(${a_Valor}t)\\sinh(${b_Valor}t)\\} = \\frac{${b_Valor}}{s^2 - ${a_Valor}^2} - \\frac{${a_Valor}}{s^2 - ${b_Valor}^2} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{${b_Valor}}{s^2 - ${a_Valor*a_Valor}} - \\frac{${a_Valor}}{s^2 - ${b_Valor*b_Valor}} \\)`;
-            break;         
-            case '10':
-                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(e^{${b_Valor}t} t^${n_Valor}) = ${b_Valor} e^{${b_Valor}t} t^${n_Valor} + n e^{${b_Valor}t} t^{${n_Valor - 1}} \\)`;
-                resultado = `\\( \\mathcal{L}\\{e^{${b_Valor}t} t^${n_Valor}\\} \\)`;
-                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{e^{bt} t^n\\} = \\frac{n!}{(s - b)^{n+1}} \\)';
-                equivalencia = `La Equivalencia de la función es: \\( b = ${b_Valor}, n = ${n_Valor} \\)`;
-                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{e^{${b_Valor}t} t^${n_Valor}\\} = \\frac{${n_Valor}!}{(s - ${b_Valor})^{${n_Valor + 1}}} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{${factorial(n_Valor)}}{(s - ${b_Valor})^{${n_Valor + 1}}} \\)`;
-            break;
-            case '11':
-                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(t \\sin(${a_Valor}t)) = \\sin(${a_Valor}t) + ${a_Valor} t \\cos(${a_Valor}t) \\)`;
-                resultado = `\\( \\mathcal{L}\\{t \\sin(${a_Valor}t)\\} \\)`;
-                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{t \\sin(at)\\} = \\frac{2as}{(s^2 + a^2)^2} \\)';
-                equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
-                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{t \\sin(${a_Valor}t)\\} = \\frac{2 \\cdot ${a_Valor} \\cdot s}{(s^2 + ${a_Valor}^2)^2} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{2 \\cdot ${a_Valor} \\cdot s}{(s^2 + ${a_Valor*a_Valor})^2} \\)`;            
-            break;
-            case '12':
-                notacion = `Notación de Leibnitz: \\( \\int_{0}^{t} f(a) \\, da \\)`;
-                resultado = `\\( \\mathcal{L}\\frac{F(${a_Valor})}{${a_Valor}}\\)`;
-                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\int_{0}^{t} f(r) \\, dr = \\frac{F(a)}{a} \\)';
-                equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
-                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\frac{F(${a_Valor})}{${a_Valor}}\\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{F(${a_Valor})}{${a_Valor}}\\)`;
-            break;
-            case '13':
-                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(t \\cos(${a_Valor}t)) = \\cos(${a_Valor}t) - ${a_Valor} t \\sin(${a_Valor}t) \\)`;
-                resultado = `\\( \\mathcal{L}\\{t \\cos(${a_Valor}t)\\} \\)`;
-                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{t \\cos(at)\\} = \\frac{s^2 - a^2}{(s^2 + a^2)^2} \\)';
-                equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
-                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{t \\cos(${a_Valor}t)\\} = \\frac{s^2 - ${a_Valor}^2}{(s^2 + ${a_Valor}^2)^2} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{s^2 - ${a_Valor}^2}{(s^2 + ${a_Valor*a_Valor})^2} \\)`;   
-            break;
-            case '14':
-                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(\\sin(${a_Valor}t + ${b_Valor})) = ${a_Valor} \\cos(${a_Valor}t + ${b_Valor}) \\)`;
-                resultado = `\\( \\mathcal{L}\\{\\sin(${a_Valor}t + ${b_Valor})\\} \\)`;
-                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\sin(at + b)\\} = \\frac{a \\cos(b) + s \\sin(b)}{s^2 + a^2} \\)';
-                equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor}, b = ${b_Valor} \\)`;
-                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\sin(${a_Valor}t + ${b_Valor})\\} = \\frac{${a_Valor} \\cos(${b_Valor}) + s \\sin(${b_Valor})}{s^2 + ${a_Valor}^2} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{${a_Valor} \\cos(${b_Valor}) + s \\sin(${b_Valor})}{s^2 + ${a_Valor*a_Valor}} \\)`;    
-            break;
-            case '15':
-                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(\\cos(${a_Valor}t + ${b_Valor})) = -${a_Valor} \\sin(${a_Valor}t + ${b_Valor}) \\)`;
-                resultado = `\\( \\mathcal{L}\\{\\cos(${a_Valor}t + ${b_Valor})\\} \\)`;
-                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\cos(at + b)\\} = \\frac{s \\cos(b) - a \\sin(b)}{s^2 + a^2} \\)';
-                equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor}, b = ${b_Valor} \\)`;
-                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\cos(${a_Valor}t + ${b_Valor})\\} = \\frac{s \\cos(${b_Valor}) - ${a_Valor} \\sin(${b_Valor})}{s^2 + ${a_Valor}^2} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{s \\cos(${b_Valor}) - ${a_Valor} \\sin(${b_Valor})}{s^2 + ${a_Valor*a_Valor}} \\)`;
-            break;
-            case '16':
-                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(u(t) \\cos(${a_Valor}t)) = -${a_Valor} u(t) \\sin(${a_Valor}t) \\)`;
-                resultado = `\\( \\mathcal{L}\\{u(t) \\cos(${a_Valor}t)\\} \\)`;
-                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{u(t) \\cos(at)\\} = \\frac{s}{s^2 + a^2} \\)';
-                equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
-                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{u(t) \\cos(${a_Valor}t)\\} = \\frac{s}{s^2 + ${a_Valor*a_Valor}} \\)`;
-                resolucion = `La Resolución de la función es: \\( \\frac{s}{s^2 + ${a_Valor*a_Valor}} \\)`;
-            break;
-            case '17':
-                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(u(t) \\sin(${a_Valor}t)) = u(t) \\cos(${a_Valor}t) \\)`;
+                    break;
+                case 19:
+                    notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(t^n e^{${b_Valor}t}) = ${n_Valor} t^{${n_Valor - 1}} e^{${b_Valor}t} + ${b_Valor} t^n e^{${b_Valor}t} \\)`;
+                    resultado = `\\( \\mathcal{L}\\{t^n e^{${b_Valor}t}\\} \\)`;
+                    formula = "La Fórmula General de la transformada es: \\( \\mathcal{L}\\{t^n e^{bt}\\} = \\frac{n!}{(s - b)^{n+1}} \\)";
+                    equivalencia = `La Equivalencia de la función es: \\( b = ${b_Valor}, n = ${n_Valor} \\)`;
+                    sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{t^n e^{${b_Valor}t}\\} = \\frac{${factorial(n_Valor)}}{(s - ${b_Valor})^{${n_Valor + 1}}} \\)`;
+                    resolucion = `La Resolución de la función es: \\( \\frac{${factorial(n_Valor)}}{(s - ${b_Valor})^{${n_Valor + 1}}} \\)`;
+                    break;
+                case 20:
+                    notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(t \\sin(${a_Valor}t)) = \\sin(${a_Valor}t) + ${a_Valor}t \\cos(${a_Valor}t) \\)`;
+                    resultado = `\\( \\mathcal{L}\\{t \\sin(${a_Valor}t)\\} \\)`;
+                    formula = "La Fórmula General de la transformada es: \\( \\mathcal{L}\\{t \\sin(at)\\} = \\frac{2as}{(s^2 + a^2)^2} \\)";
+                    equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
+                    sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{t \\sin(${a_Valor}t)\\} = \\frac{2${a_Valor}s}{(s^2 + ${a_Valor}^2)^2} \\)`;
+                    resolucion = `La Resolución de la función es: \\( \\frac{${2 * a_Valor}b}{(s^2 + ${a_Valor * a_Valor})^2} \\)`;
+                    break;
+                case 21:
+                    notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(t \\cos(${a_Valor}t)) = \\cos(${a_Valor}t) - ${a_Valor}t \\sin(${a_Valor}t) \\)`;
+                    resultado = `\\( \\mathcal{L}\\{t \\cos(${a_Valor}t)\\} \\)`;
+                    formula = "La Fórmula General de la transformada es: \\( \\mathcal{L}\\{t \\cos(at)\\} = \\frac{s^2 - a^2}{(s^2 + a^2)^2} \\)";
+                    equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
+                    sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{t \\cos(${a_Valor}t)\\} = \\frac{s^2 - ${a_Valor}^2}{(s^2 + ${a_Valor}^2)^2} \\)`;
+                    resolucion = `La Resolución de la función es: \\( \\frac{s^2 - ${a_Valor * a_Valor}}{(s^2 + ${a_Valor * a_Valor})^2} \\)`;
+                    break;
+                case 22:
+                    notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(\\sin(${a_Valor}t + ${b_Valor})) = ${a_Valor} \\cos(${a_Valor}t + ${b_Valor}) \\)`;
+                    resultado = `\\( \\mathcal{L}\\{\\sin(${a_Valor}t + ${b_Valor})\\} \\)`;
+                    formula = "La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\sin(at + b)\\} = \\frac{a}{s^2 + a^2} \\)";
+                    equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
+                    sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\sin(${a_Valor}t + ${b_Valor})\\} = \\frac{${a_Valor}}{s^2 + ${a_Valor}^2} \\)`;
+                    resolucion = `La Resolución de la función es: \\( \\frac{${a_Valor}}{s^2 + ${a_Valor * a_Valor}} \\)`;
+                    break;
+                case 23:
+                    notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(\\cos(${a_Valor}t + ${b_Valor})) = -${a_Valor} \\sin(${a_Valor}t + ${b_Valor}) \\)`;
+                    resultado = `\\( \\mathcal{L}\\{\\cos(${a_Valor}t + ${b_Valor})\\} \\)`;
+                    formula = "La Fórmula General de la transformada es: \\( \\mathcal{L}\\{\\cos(at + b)\\} = \\frac{s}{s^2 + a^2} \\)";
+                    equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
+                    sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{\\cos(${a_Valor}t + ${b_Valor})\\} = \\frac{s}{s^2 + ${a_Valor}^2} \\)`;
+                    resolucion = `La Resolución de la función es: \\( \\frac{s}{s^2 + ${a_Valor * a_Valor}} \\)`;
+                    break;
+                case 24:
+                    notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(u(t) \\cos(${a_Valor}t)) = u(t)(-${a_Valor} \\sin(${a_Valor}t)) \\)`;
+                    resultado = `\\( \\mathcal{L}\\{u(t) \\cos(${a_Valor}t)\\} \\)`;
+                    formula = "La Fórmula General de la transformada es: \\( \\mathcal{L}\\{u(t) \\cos(at)\\} = \\frac{s + a}{s^2 + a^2} \\)";
+                    equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
+                    sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{u(t) \\cos(${a_Valor}t)\\} = \\frac{s + ${a_Valor}}{s^2 + ${a_Valor}^2} \\)`;
+                    resolucion = `La Resolución de la función es: \\( \\frac{s + ${a_Valor}}{s^2 + ${a_Valor * a_Valor}} \\)`;
+                    break;
+                case 25:
+                notacion = `Notación de Leibnitz: \\( \\frac{d}{dt}(u(t) \\sin(${a_Valor}t)) = u(t)(${a_Valor} \\cos(${a_Valor}t)) \\)`;
                 resultado = `\\( \\mathcal{L}\\{u(t) \\sin(${a_Valor}t)\\} \\)`;
-                formula = 'La Fórmula General de la transformada es: \\( \\mathcal{L}\\{u(t) \\sin(at)\\} = \\frac{a}{s^2 + a^2} \\)';
+                formula = "La Fórmula General de la transformada es: \\( \\mathcal{L}\\{u(t) \\sin(at)\\} = \\frac{a}{s^2 + a^2} \\)";
                 equivalencia = `La Equivalencia de la función es: \\( a = ${a_Valor} \\)`;
-                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{u(t) \\sin(${a_Valor}t)\\} = \\frac{${a_Valor}}{s^2 + ${a_Valor*a_Valor}} \\)`;
+                sustitucion = `La Sustitución de la función es: \\( \\mathcal{L}\\{u(t) \\sin(${a_Valor}t)\\} = \\frac{${a_Valor}}{s^2 + ${a_Valor}^2} \\)`;
                 resolucion = `La Resolución de la función es: \\( \\frac{${a_Valor}}{s^2 + ${a_Valor*a_Valor}} \\)`;
-            break;
-            default:
-                notacion = 'Función no implementada.';
                 break;
+                case 26:
+                    notacion = "F_{n+1} = \\sum_{i=0}^{n} F_i";
+                    resultado = (n_Valor * (n_Valor + 1)) / 2;
+                    formula = "F_{n+1} = \\sum_{i=0}^{n} F_i";
+                    equivalencia = `F_{n+1} = \\sum_{i=0}^{n} F_i = (n * (n + 1)) / 2`;
+                    sustitucion = `n = ${n_Valor}`;
+                    resolucion = `F_{n+1} = ${resultado}`;
+                    break;
+                case 27:
+                    notacion = "F_{n+2} = \\sum_{i=0}^{n+1} F_i";
+                    resultado = ((n_Valor + 1) * (n_Valor + 2)) / 2;
+                    formula = "F_{n+2} = \\sum_{i=0}^{n+1} F_i";
+                    equivalencia = `F_{n+2} = \\sum_{i=0}^{n+1} F_i = ((n + 1) * (n + 2)) / 2`;
+                    sustitucion = `n = ${n_Valor}`;
+                    resolucion = `F_{n+2} = ${resultado}`;
+                    break;
+                default:
+                    alert("Función no implementada todavía.");
+                    return;
+            }
+
+            notaciondeLeibnitz.textContent = `Notación: ${notacion}`;
+            resultado1.textContent = `Resultado: ${resultado}`;
+            formula1.textContent = `Fórmula: ${formula}`;
+            equivalencia1.textContent = `Equivalencia: ${equivalencia}`;
+            sustitucion1.textContent = `Sustitución: ${sustitucion}`;
+            resolucion1.textContent = `Resolución: ${resolucion}`;
+
+            MathJax.typeset();
         }
 
-        notaciondeLeibnitz.innerHTML = notacion;
-        resultado1.innerHTML = resultado;
-        formula1.innerHTML = formula;
-        equivalencia1.innerHTML = equivalencia;
-        sustitucion1.innerHTML = sustitucion;
-        resolucion1.innerHTML = resolucion;
-
-        MathJax.typeset();
-    }
-
-    // Inicializa el carrusel
-    var swiper = new Swiper('.swiper-container', {
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        slidesPerView: 1,
-        spaceBetween: 10,
-        centeredSlides: true,
-        loop: true,
-    });
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
     </script>
 </body>
+
 </html>
